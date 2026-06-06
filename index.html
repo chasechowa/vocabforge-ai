@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light dark" />
+    <title>VocabForge AI</title>
+    <script>
+      // Pre-init theme before React loads to prevent flash of wrong theme
+      (function() {
+        try {
+          var saved = localStorage.getItem('vocabforge_dark_mode');
+          if (saved === 'true') {
+            document.documentElement.classList.add('dark');
+          } else {
+            document.documentElement.classList.remove('dark');
+          }
+        } catch (e) {}
+      })();
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+            },
+          },
+        },
+      };
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: #f8fafc;
+      }
+      html.dark body {
+        background: #0b1121;
+        background-image:
+          radial-gradient(ellipse 70% 50% at 50% 0%, rgba(251, 191, 36, 0.12), transparent),
+          radial-gradient(ellipse 50% 40% at 20% 100%, rgba(245, 158, 11, 0.06), transparent),
+          linear-gradient(180deg, #0b1121 0%, #0f172a 60%, #1a1814 100%);
+      }
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #f1f5f9;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #cbd5e1;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #94a3b8;
+      }
+      html.dark ::-webkit-scrollbar-track {
+        background: #1e293b;
+      }
+      html.dark ::-webkit-scrollbar-thumb {
+        background: #475569;
+      }
+      html.dark ::-webkit-scrollbar-thumb:hover {
+        background: #64748b;
+      }
+    </style>
+  <link rel="stylesheet" href="/index.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
